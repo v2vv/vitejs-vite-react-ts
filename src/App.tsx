@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import './App.css';
+import { marked } from 'marked';
+import Tabe from './pages/page.tsx';
+import { Octokit } from '@octokit/core';
+
+// const octokit = new Octokit({
+//   auth: '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',
+// });
+
+// await octokit.request('POST /gists', {
+//   description: 'Example of a gist',
+//   public: false,
+//   files: {
+//     'README.md': {
+//       content: 'Hello World',
+//     },
+//   },
+// });
+
+const html = marked.parse('# Marked in Node.js\n\nRendered by **marked**.');
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div>
+      <h1>New Site</h1>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <Tabe />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
