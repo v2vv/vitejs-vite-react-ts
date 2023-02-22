@@ -2,12 +2,12 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
 import { marked } from 'marked';
-import Tabe from './pages/page.tsx';
+import Tabe from './pages/page';
 import { Octokit } from '@octokit/core';
 
-// const octokit = new Octokit({
-//   auth: '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',
-// });
+const octokit = new Octokit({
+  auth: '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',
+});
 
 // await octokit.request('POST /gists', {
 //   description: 'Example of a gist',
